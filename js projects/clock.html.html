@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CLOCK</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<p id="digital clock" class="clock"></p>
+	<script type="text/javascript">
+		function current_time() 
+		{
+		var date=new Date();
+		var hour=date.getHours();
+		var min=date.getMinutes();
+		var sec=date.getSeconds();
+		var session="AM";
+		if(hour>12){
+			hour=hour-12;
+			session="PM";
+		}
+		if (hour==0) {
+			hour=12;
+		}
+		hour=(hour<10)?"0"+hour:hour;
+		min=(min<10)?"0"+min:min;
+		sec=(sec<10)?"0"+sec:sec;
+		document.getElementById("digital clock").innerHTML= hour + ":" + min + ":" + sec + session;
+		setTimeout(current_time,1000);
+	}
+	current_time();
+	</script>
+	<style>
+		body{
+			background-color: palevioletred;
+		}
+		.clock{
+			position: absolute;
+			top: 35%;
+			left: 40%;
+			font-size: 60px;
+			letter-spacing: 6px;
+			color: greenyellow;
+			transform: translateX(-10px) translateY(-10px);
+		}
+	</style>
+</body>
+</html>

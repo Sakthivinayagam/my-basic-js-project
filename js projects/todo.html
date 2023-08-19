@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>To-Do List</title>
+	<script>
+		window.onload=function(){
+			alert("Hi welcome to my To-Do list Webpage. Stay organized and boost your productivity with my To-Do list project. You can create your to-do list and then you can remove by clicking on the list");
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<h1 class="vivo">TO-DO LIST</h1>
+		<br>
+		<div class="vivo">
+			<form>
+				<div class="input-group">
+					<input type="text" placeholder="to-do items" id="box" style="width: 30vw">
+				</div>
+				<br>
+				<div class="form-group">
+					<input type="button" value="add" onclick="addItem()" width="20px">
+				</div>
+			</form>
+		</div>
+		<div id="vivo">
+			<ul id="list_items">
+			</ul>
+		</div>
+	</div>
+	<script>
+		function addItem(){
+			let item = document.getElementById("box").value;
+			let list = document.getElementById("list_items");
+			
+			if(item.trim() !== ""){
+				let listItem = document.createElement("li");
+				listItem.appendChild(document.createTextNode(item));
+				list.appendChild(listItem);
+				
+				listItem.onclick = function(){
+					this.parentNode.removeChild(this);
+				};
+				
+				document.getElementById("box").value = "";
+			}
+			else{
+				alert("Please add a to-do item");
+			}
+		}
+	</script>
+	<footer style="text-align:center; color:darkmagenta; font-size: 20px;">
+		<p style="color:black;">&copy; 2023 Sakthivinayagam c</p>
+	</footer>
+	<style>
+		body{
+			background-color: skyblue;
+		}
+	</style>
+</body>
+</html>
